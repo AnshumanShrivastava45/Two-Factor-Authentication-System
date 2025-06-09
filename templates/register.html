@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4">
+                <h2 class="text-center mb-4">Register</h2>
+                <form method="POST" class="form-group">
+                    {{ form.hidden_tag() }}
+
+                    <div class="mb-3">
+                        {{ form.name.label(class="form-label", for="name") }}
+                        {{ form.name(class="form-control", id="name") }}
+                        {% if form.name.errors %}
+                            <div class="text-danger small">{{ form.name.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        {{ form.phone.label(class="form-label", for="phone") }}
+                        {{ form.phone(class="form-control", id="phone") }}
+                        {% if form.phone.errors %}
+                            <div class="text-danger small">{{ form.phone.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label", for="email") }}
+                        {{ form.email(class="form-control", id="email") }}
+                        {% if form.email.errors %}
+                            <div class="text-danger small">{{ form.email.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        {{ form.password.label(class="form-label", for="password") }}
+                        {{ form.password(class="form-control", id="password") }}
+                        {% if form.password.errors %}
+                            <div class="text-danger small">{{ form.password.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <small class="text-muted">Note: Password must contain at least one special character, one lowercase letter, and one uppercase letter.</small><br><br>
+                        {{ form.confirm.label(class="form-label mt-2", for="confirm") }}
+                        {{ form.confirm(class="form-control", id="confirm") }}
+                        {% if form.confirm.errors %}
+                            <div class="text-danger small">{{ form.confirm.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="text-center mt-4">
+                        {{ form.submit(class="btn btn-primary btn-block") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
